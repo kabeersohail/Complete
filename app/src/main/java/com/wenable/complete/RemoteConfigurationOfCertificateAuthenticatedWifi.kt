@@ -2,10 +2,12 @@ package com.wenable.complete
 
 import javax.inject.Inject
 
-class RemoteConfigurationOfCertificateAuthenticatedWifi @Inject constructor() {
+class RemoteConfigurationOfCertificateAuthenticatedWifi @Inject constructor(
+    private val customCertificate: CustomCertificate
+) {
 
     fun authWifi(): String {
-        return "I am an injected method"
+        return customCertificate.getSSHCertificate()
     }
 
 }
