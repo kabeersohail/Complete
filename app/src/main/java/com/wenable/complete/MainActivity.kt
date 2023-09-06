@@ -22,13 +22,18 @@ class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var customCertificateService: CustomCertificateService
 
+    @Inject
+    lateinit var personalizedCertificate: PersonalizedCertificate
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
 //        Log.d("!!@####", remoteConfigurationOfCertificateAuthenticatedWifi.authWifi())
 
-        Log.d("!!@####", customCertificateService.getCertificate())
+//        Log.d("!!@####", customCertificateService.getCertificate())
+
+        Log.d("!!@####", personalizedCertificate.toString())
 
     }
 }
