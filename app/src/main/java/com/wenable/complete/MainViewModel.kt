@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 
 class MainViewModel: ViewModel() {
 
-    var name: String = ""
+    var name: String = "Remote Configuration of Certificate Authenticated WIFI"
 
     fun setNameX(name: String) {
         this.name = name
