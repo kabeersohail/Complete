@@ -1,15 +1,23 @@
 package com.wenable.complete
 
 import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class MainViewModel: ViewModel() {
 
-    var name: String = "Remote Configuration of Certificate Authenticated WIFI"
+    private var _name: MutableLiveData<String> = MutableLiveData("Remote Configuration of Certificate Authenticated WIFI")
+    var name: LiveData<String> = _name
+    var x: Int = 0
 
-    fun setNameX(name: String) {
-        this.name = name
-        Log.d("@@@##$%", name)
+    fun change() {
+        x++
+        _name.value = x.toString()
+    }
+
+    fun changed(text: String) {
+        Log.d("##@$%@%@", text)
     }
 
 }

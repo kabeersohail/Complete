@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.wenable.complete.MainViewModel" />
@@ -18,20 +19,30 @@
             android:id="@+id/edit_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@={viewModel.name}"
+            android:onTextChanged="@{() -> viewModel.changed(editText.text)}"
+            android:text="@{viewModel.name}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/edit_text"
-            app:layout_constraintStart_toStartOf="parent"
-            android:onClick="@{() -> viewModel.setNameX(editText.text.toString())}"
+        <EditText
+            android:id="@+id/first_copy"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.name}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edit_text" />
+
+        <Button
+            android:id="@+id/change"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->viewModel.change()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/first_copy" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
